@@ -7,11 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.annotation.NonNull;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         addTextView(this, findViewById(R.id.main),
                 getString(R.string.copyright));
+
         ImageView img_telegram = findViewById(R.id.telega);
         ImageView img_github = findViewById(R.id.github);
         ImageView img_linkedin = findViewById(R.id.linkedin);
@@ -56,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private TextView addTextView(Activity activity,
-                                 RelativeLayout parent,
-                                 CharSequence text) {
+    private TextView addTextView(@NonNull Activity activity,
+                                 @NonNull RelativeLayout parent,
+                                 @NonNull CharSequence text) {
         int margin = getResources().getDimensionPixelOffset(R.dimen.half_margin);
         TextView tv = new TextView(activity);
         tv.setText(text);
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         return tv;
     }
 
-    public void openURL(String url) {
+    public void openURL(@NonNull String url) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -81,7 +82,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private Intent getMailIntent(String to, String subject, String msg) {
+    private Intent getMailIntent(@NonNull String to,
+                                 @NonNull String subject,
+                                 @NonNull String msg) {
         Intent i = new Intent(Intent.ACTION_SENDTO);
         String mailto = "mailto:" + to + "?subject=" + subject + "&body=" + msg;
         i.setData(Uri.parse(mailto));
