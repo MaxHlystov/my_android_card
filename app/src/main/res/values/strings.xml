@@ -5,11 +5,11 @@
     <string name="phd_text">P.h.d. in CAM</string>
     <string name="text_1c_worker">1C: Corporate performance management</string>
     <string name="top_ten_stepik">Enter top ten on stepik.org</string>
-    <string name="enter_a_message">Enter a message...</string>
+    <string name="enter_a_message">Enter a message…</string>
     <string name="send_message">SEND MESSAGE</string>
     <string name="copyright">© 2018 Maksim Khlystov</string>
-    <string name="my_email" translatable="false">maxvls@gmail.com</string>
     <string name="NoEmail">Email program not found</string>
+    <string name="my_email" translatable="false">maxvls@gmail.com</string>
     <string name="url_telegram" translatable="false">https://t.me/max1c</string>
     <string name="url_github" translatable="false">https://github.com/MaxHlystov</string>
     <string name="url_linkedin" translatable="false">https://linkedin.com/pub/maxim-khlystov/a7/6ba/123</string>
