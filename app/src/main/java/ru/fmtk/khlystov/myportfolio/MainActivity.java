@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Button;
 import android.widget.Toast;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView img_github = findViewById(R.id.github);
         ImageView img_linkedin = findViewById(R.id.linkedin);
         TextView tv_msg = findViewById(R.id.message);
-        TextView tv_send_mail = findViewById(R.id.send_message);
+        Button btn_send_mail = findViewById(R.id.btn_send_message);
         TextView tv_stepik = findViewById(R.id.key_info2);
 
         IConfigValues config = ConfigValues.getConfig();
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             BrowserOpener.openURL(this, config.getURL_Stepik());
         });
 
-        tv_send_mail.setOnClickListener((View tv) -> {
+        btn_send_mail.setOnClickListener((View tv) -> {
             @Nullable Intent i = getMailIntent(config.getMyEmail(), getString(R.string.greeting), tv_msg.getText().toString());
             if (i != null) {
                 startActivity(i);
