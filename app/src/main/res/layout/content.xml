@@ -133,7 +133,7 @@
             android:id="@+id/social"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/send_message"
+            android:layout_below="@id/btn_send_message"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/half_margin"
             android:orientation="horizontal">
