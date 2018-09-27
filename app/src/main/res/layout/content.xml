@@ -117,7 +117,7 @@
             android:textSize="@dimen/normal_text_size" />
 
         <Button
-            android:id="@+id/send_message"
+            android:id="@+id/btn_send_message"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
