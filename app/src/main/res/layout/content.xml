@@ -69,7 +69,7 @@
                 android:layout_height="@dimen/key_icon_size"
                 android:layout_marginEnd="@dimen/key_end_margin"
                 android:contentDescription="@string/photo"
-                android:src="@drawable/logo1c" />
+                android:src="@drawable/ic_1c_companylogo" />
 
             <TextView
                 android:id="@+id/key_info3"
