@@ -1,12 +1,19 @@
 package ru.fmtk.khlystov.myportfolio;
 
+import android.support.annotation.NonNull;
+
 public class ConfigValues implements IConfigValues {
 
+    private static IConfigValues config = null;
+
+    @NonNull
     public static IConfigValues getConfig() {
         if(config == null)
             config = new ConfigValues();
         return config;
     }
+
+    private ConfigValues() {}
 
     @Override
     public String getMyEmail() {
@@ -14,26 +21,20 @@ public class ConfigValues implements IConfigValues {
     }
 
     @Override
-    public String getURL_Telegram() {
-        return "https://t.me/max1c";
+    public SocialNetwork getURLTelegram() {
+        return SocialNetwork.TELEGRAM;
     }
 
     @Override
-    public String getURL_Github() {
-        return "https://github.com/MaxHlystov";
+    public SocialNetwork getURLGithub() {
+        return SocialNetwork.GITHUB;
     }
 
     @Override
-    public String getURL_Linkedin() {
-        return "https://linkedin.com/pub/maxim-khlystov/a7/6ba/123";
-    }
+    public SocialNetwork getURLLinkedin() { return SocialNetwork.LINKEDIN; }
 
     @Override
-    public String getURL_Stepik() {
-        return "https://stepik.org/leaders/knowledge";
+    public SocialNetwork getURLStepik() {
+        return SocialNetwork.STEPIK;
     }
-
-    private ConfigValues() {}
-
-    private static IConfigValues config = null;
 }

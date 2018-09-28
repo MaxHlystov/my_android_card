@@ -6,13 +6,17 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 
 
-public class BrowserOpener {
+public class BrowserIntent {
 
-    static public void openURL(@NonNull Activity activity, @NonNull String url) {
+    private BrowserIntent() {
+    }
+
+    @NonNull
+    public static Intent get(@NonNull Activity activity, @NonNull String url) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addCategory(Intent.CATEGORY_BROWSABLE);
         intent.setData(Uri.parse(url));
-        activity.startActivity(intent);
+        return intent;
     }
 }
