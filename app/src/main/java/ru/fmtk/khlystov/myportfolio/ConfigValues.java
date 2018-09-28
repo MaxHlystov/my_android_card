@@ -10,8 +10,9 @@ public class ConfigValues implements IConfigValues {
 
     @NonNull
     public static IConfigValues getConfig() {
-        if(config == null)
+        if(config == null) {
             config = new ConfigValues();
+        }
         return config;
     }
 
