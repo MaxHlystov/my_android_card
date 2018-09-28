@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void socialLinkOnClickHandler(@NonNull View parent, @NonNull SocialNetwork link) {
         showIntent(parent,
-                BrowserIntent.get(this, link.getUrl()),
+                BrowserIntent.get(link.getUrl()),
                 getString(R.string.no_browser_error));
     }
 

@@ -9,6 +9,7 @@
         android:id="@+id/layout_imaged_text__image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
         android:scaleType="fitCenter"
         tools:layout_height="@dimen/key_icon_size"
         tools:layout_marginEnd="@dimen/half_margin"

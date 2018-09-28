@@ -1,6 +1,5 @@
 package ru.fmtk.khlystov.myportfolio;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;

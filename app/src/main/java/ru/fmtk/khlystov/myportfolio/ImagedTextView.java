@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,12 @@ import android.widget.TextView;
 
 public class ImagedTextView extends LinearLayout {
 
+    @Nullable
     private String text = "";
+    @Nullable
     private Drawable image = null;
     private int imageToTextMargin = 0;
-    private Context context;
-    private TextView textView;
-    private ImageView imageView;
+    private final Context context;
 
     public ImagedTextView(@NonNull Context context) {
         super(context);
@@ -47,15 +48,15 @@ public class ImagedTextView extends LinearLayout {
 
     private void init() {
         View rootView = inflate(context, R.layout.layout_imaged_text, this);
-        textView = rootView.findViewById(R.id.layout_imaged_text__text);
+        TextView textView = rootView.findViewById(R.id.layout_imaged_text__text);
         textView.setText(text);
-        if (text.isEmpty()) {
+        if (text == null || text.isEmpty()) {
             textView.setVisibility(INVISIBLE);
         } else {
             textView.setVisibility(VISIBLE);
         }
 
-        imageView = rootView.findViewById(R.id.layout_imaged_text__image);
+        ImageView imageView = rootView.findViewById(R.id.layout_imaged_text__image);
         if (imageView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams =
                     (ViewGroup.MarginLayoutParams) imageView.getLayoutParams();
