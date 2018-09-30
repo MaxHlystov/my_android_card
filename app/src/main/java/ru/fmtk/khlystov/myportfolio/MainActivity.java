@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import ru.fmtk.khlystov.thirdpartyintentutils.BrowserIntent;
+import ru.fmtk.khlystov.thirdpartyintentutils.MailIntent;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

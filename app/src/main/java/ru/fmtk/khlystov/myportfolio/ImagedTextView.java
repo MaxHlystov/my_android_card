@@ -19,38 +19,47 @@ public class ImagedTextView extends LinearLayout {
     @Nullable
     private Drawable image = null;
     private int imageToTextMargin = 0;
-    private final Context context;
 
     public ImagedTextView(@NonNull Context context) {
-        super(context);
-        this.context = context;
-        init();
+        this(context, null, 0, 0);
     }
 
     public ImagedTextView(@NonNull Context context, @NonNull AttributeSet attrs) {
-        super(context, attrs);
-        this.context = context;
-        text = "";
-        TypedArray typedArray = context.getTheme().obtainStyledAttributes(
-                attrs,
-                R.styleable.ImagedText,
-                0, 0);
+        this(context, attrs, 0, 0);
+    }
 
+    public ImagedTextView(@NonNull Context context, @NonNull AttributeSet attrs, int defStyleAttr, int defStyleResource) {
+        super(context, attrs, defStyleAttr, defStyleResource);
+        text = "";
+        TypedArray typedArray = null;
         try {
-            image = typedArray.getDrawable(R.styleable.ImagedText_src);
-            imageToTextMargin = typedArray.getDimensionPixelOffset(R.styleable.ImagedText_imageToTextMargin, 0);
-            text = typedArray.getString(R.styleable.ImagedText_text);
-        } finally {
-            typedArray.recycle();
+            typedArray = context.obtainStyledAttributes(
+                    attrs,
+                    R.styleable.ImagedText,
+                    defStyleAttr,
+                    defStyleAttr);
+        } catch (Exception ex) {
+            if (typedArray != null) {
+                typedArray.recycle();
+            }
         }
-        init();
+        if (typedArray != null) {
+            try {
+                image = typedArray.getDrawable(R.styleable.ImagedText_src);
+                imageToTextMargin = typedArray.getDimensionPixelOffset(R.styleable.ImagedText_imageToTextMargin, 0);
+                text = typedArray.getString(R.styleable.ImagedText_text);
+            } finally {
+                typedArray.recycle();
+            }
+            init();
+        }
     }
 
     private void init() {
-        View rootView = inflate(context, R.layout.layout_imaged_text, this);
+        View rootView = inflate(getContext(), R.layout.layout_imaged_text, this);
         TextView textView = rootView.findViewById(R.id.layout_imaged_text__text);
         textView.setText(text);
-        if (text == null || text.isEmpty()) {
+        if (android.text.TextUtils.isEmpty(text)) {
             textView.setVisibility(INVISIBLE);
         } else {
             textView.setVisibility(VISIBLE);
